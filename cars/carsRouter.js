@@ -86,4 +86,19 @@ router.patch("/:id", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  db("cars")
+    .where({ id })
+    .del()
+    .then((car) => {
+      res.status(200).json({
+        message: `The car with an ID of ${id} has been successfully deleted from the database.`,
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+});
+
 module.exports = router;
