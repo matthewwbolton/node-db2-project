@@ -1,11 +1,10 @@
-exports.up = function (knex) {
+exports.up = function (knex, Promise) {
   return knex.schema.createTable("sales", (tbl) => {
     tbl.increments("salesID");
     tbl
-      .foreign("car_id")
+      .bigInteger("car_id")
       .references("id")
       .inTable("cars")
-      .unsigned()
       .notNullable()
       .index();
     tbl.decimal("sales_price").notNullable().index();
@@ -13,6 +12,6 @@ exports.up = function (knex) {
   });
 };
 
-exports.down = function (knex) {
+exports.down = function (knex, Promise) {
   return knex.schema.dropTableIfExists("sales");
 };
