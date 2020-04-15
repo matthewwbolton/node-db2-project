@@ -5,8 +5,8 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex("sales").insert([
-        { car_id: 2, sales_price: 20000, date_of_sale: "1983 - 03 - 02" },
-        { car_id: 3, sales_price: 30000, date_of_sale: "1984 - 10 - 27" },
+        { car_id: 2, sales_price: 20000, date_of_sale: 19830302 },
+        { car_id: 3, sales_price: 30000, date_of_sale: 19841027 },
       ]);
     });
 };
