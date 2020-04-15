@@ -5,6 +5,7 @@ const knex = require("knex");
 const knexfile = require("../knexfile");
 
 const db = knex(knexfile.development);
+const cars = require("../data/db-helper");
 
 const router = express.Router();
 
